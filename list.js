@@ -26,6 +26,7 @@ export default class LinkedList
             this.tail.nextNode = node;
 
         this.tail = node;
+        this.size++;
     }
 
     prepend(value)
@@ -37,6 +38,7 @@ export default class LinkedList
             this.tail = node;
 
         this.head = node;
+        this.size++;
     }
 
     at(index)
@@ -65,6 +67,8 @@ export default class LinkedList
 
             lastNode = node;
         }
+
+        this.size--;
     }
 
     contains(value)
@@ -103,6 +107,8 @@ export default class LinkedList
 
                 inserted.nextNode = node;
                 lastNode.nextNode = inserted;
+
+                this.size++;
                 return;
             }
 
@@ -121,6 +127,7 @@ export default class LinkedList
             else
                 this.head = this.head.nextNode;
 
+            this.size--;            
             return;
         }
 
@@ -129,6 +136,7 @@ export default class LinkedList
         for( let node = lastNode, i = 1; node; node = node.nextNode, i++ ) {
             if( i == index ) {
                 lastNode.nextNode = node.nextNode;
+                this.size--;
                 break;
             }
 
