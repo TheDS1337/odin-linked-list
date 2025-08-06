@@ -129,7 +129,7 @@ export default class LinkedList
         for( let node = lastNode, i = 0; node; node = node.nextNode, i++ ) {
             if( i == index ) {
                 lastNode.nextNode = node.nextNode;
-                return;
+                break;
             }
 
             lastNode = node;
@@ -143,7 +143,7 @@ export default class LinkedList
         for( let node = this.head; node; node = node.nextNode )
             str += `( ${node.value} ) -> `;
 
-        str += '( null )';
+        str += "( null )";
 
         return str;
     }
